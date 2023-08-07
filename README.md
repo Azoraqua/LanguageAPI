@@ -20,7 +20,7 @@ A simple library for introducing multiple languages into projects.
   ```
 
 
-## Examples:
+## How to use:
 - Registration:
   ```kt
   LanguageAPI.registerTranslation("hello.world", "Hello World", Locale.ENGLISH)
