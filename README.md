@@ -1,14 +1,19 @@
 # LanguageAPI 
-![Latest Version](https://img.shields.io/github/v/tag/Azoraqua/LanguageAPI?label=Latest&color=blue)
+[![](https://jitpack.io/v/com.azoraqua/LanguageAPI.svg)](https://jitpack.io/#com.azoraqua/LanguageAPI)
 
 A simple library for introducing multiple languages into projects.
 
 ## Installation:
 
-**Note:** None of the dependencies below will work at the moment. Work in progress.
-
 - Maven:
-  ```xml 
+  ```xml
+  // Repository
+  <repository>
+	  <id>jitpack.io</id>
+		<url>https://jitpack.io</url>
+  </repository>
+
+  // Dependency
   <dependency>
     <groupId>com.azoraqua</groupId>
     <artifactId>LanguageAPI</artifactId>
@@ -17,10 +22,18 @@ A simple library for introducing multiple languages into projects.
   ```
 - Gradle (Groovy):
   ```groovy
+  // Repository
+  maven { url 'https://jitpack.io' } 
+
+  // Dependency
   implementation 'com.azoraqua:LanguageAPI:{VERSION}'
   ```
-- Gradle (Kotlin)
+- Gradle (Kotlin):
   ```kt
+  // Repository
+  maven("https://jitpack.io")
+
+  // Dependency
   implementation("com.azoraqua:LanguageAPI:{VERSION}")
   ```
 
@@ -28,10 +41,14 @@ A simple library for introducing multiple languages into projects.
 
 - Registration:
   ```kt
-  com.azoraqua.language.LanguageAPI.registerTranslation("hello.world", "Hello World", Locale.ENGLISH)
+  LanguageAPI.registerTranslation("hello.world", "Hello World", Locale.ENGLISH)
+  ```
+- Unregistration:  
+  ```kt
+  LanguageAPI.unregisterTranslation("hello.world", Locale.ENGLISH)
   ```
 - Retrieval:
   ```kt
   // Optionally, provide a locale if you want the translation in a different language other than the system's default.
-  com.azoraqua.language.LanguageAPI.getTranslation("hello.world")
+  LanguageAPI.getTranslation("hello.world")
   ```
