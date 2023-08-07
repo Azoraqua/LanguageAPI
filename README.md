@@ -1,7 +1,7 @@
-# LanguageAPI ![](https://badgen.net/github/release/Azoraqua/LanguageAPI/main?label=stable) ![](https://badgen.net/github/release/Azoraqua/LanguageAPI/develop?label=latest)
+# LanguageAPI ![](https://badgen.net/github/tag/Azoraqua/LanguageAPI?label=latest)
 A simple library for introducing multiple languages into projects.  
 
-
+https://badgen.net/github/tag/micromatch/micromatch
 
 ## Installation:
 - Maven:
