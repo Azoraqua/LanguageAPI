@@ -1,9 +1,9 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     kotlin("jvm") version "1.9.0"
 
+    `java`
+    `signing`
     `maven-publish`
 }
 
@@ -17,6 +17,11 @@ repositories {
 dependencies {
     implementation("com.google.code.gson", "gson", "2.10.1")
     testImplementation(kotlin("test"))
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
 }
 
 tasks.test {
@@ -40,20 +45,40 @@ tasks.shadowJar {
     relocate("com.google.code.gson", "libs.gson")
 }
 
+signing {
+    useGpgCmd()
+
+    sign(configurations.runtimeElements.get())
+}
+
 publishing {
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/Azoraqua/LanguageAPI")
-            credentials {
-                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+    publications.create("gpr", MavenPublication::class)
+
+    publications.withType<MavenPublication>().forEach {
+        with(it.pom) {
+            withXml {
+                val root = asNode()
+                root.appendNode("name", "LanguageAPI")
+                root.appendNode("description", "A simple library for introducing multiple languages into projects.")
+                root.appendNode("url", "https://github.com/Azoraqua/LanguageAPI")
             }
-        }
-    }
-    publications {
-        register<MavenPublication>("gpr") {
-            from(components["java"])
+
+            licenses {
+                name.set("MIT License")
+                url.set("https://github.com/Azoraqua/LanguageAPI")
+            }
+
+            developers {
+                developer {
+                    id.set("Azoraqua")
+                    name.set("Ronald Bunk")
+                    email.set("info@azoraqua.com")
+                }
+            }
+
+            scm {
+                url.set("https://github.com/Azoraqua/LanguageAPI")
+            }
         }
     }
 }
