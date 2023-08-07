@@ -1,6 +1,5 @@
-# LanguageAPI ![](https://badgen.net/github/release/Azoraqua/LanguageAPI/main?label=stable) ![](https://badgen.net/github/release/Azoraqua/LanguageAPI/develop?label=latest)
+# LanguageAPI ![](https://badgen.net/github/release/Azoraqua/LanguageAPI/develop?label=latest)
 A simple library for introducing multiple languages into projects.  
-
 
 
 ## Installation:
