@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "com.azoraqua"
-version = "1.2-SNAPSHOT"
+version = "1.2.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
