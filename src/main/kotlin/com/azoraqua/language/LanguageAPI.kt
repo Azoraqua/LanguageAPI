@@ -1,3 +1,6 @@
+@file:JvmName("LanguageAPI")
+package com.azoraqua.language
+
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import java.io.*
@@ -5,6 +8,7 @@ import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets
 import java.nio.file.Path
 import java.util.*
+
 
 class LanguageAPI private constructor() {
     companion object {

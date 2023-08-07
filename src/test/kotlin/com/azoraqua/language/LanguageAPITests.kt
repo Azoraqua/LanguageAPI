@@ -1,3 +1,5 @@
+package com.azoraqua.language
+
 import org.junit.jupiter.api.*
 import java.io.File
 import java.nio.charset.StandardCharsets
