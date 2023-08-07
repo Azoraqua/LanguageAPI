@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "com.azoraqua"
-version = "1.0-SNAPSHOT"
+version = "1.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -16,6 +16,11 @@ repositories {
 
 dependencies {
     implementation("com.google.code.gson", "gson", "2.10.1")
+    testImplementation(kotlin("test"))
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 
 tasks.compileJava {
