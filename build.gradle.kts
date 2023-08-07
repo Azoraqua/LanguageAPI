@@ -3,6 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     kotlin("jvm") version "1.9.0"
+
+    `maven-publish`
 }
 
 group = "com.azoraqua"
@@ -37,17 +39,16 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/OWNER/REPOSITORY")
+            url = uri("https://maven.pkg.github.com/Azoraqua/LanguageAPI")
             credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+                username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
             }
         }
     }
-
     publications {
-        gpr(MavenPublication) {
-            from(components.java)
+        register<MavenPublication>("gpr") {
+            from(components["java"])
         }
     }
 }

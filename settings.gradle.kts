@@ -1,3 +1,3 @@
 
-rootProject.name = "LanguageAPI"
+rootProject.name = "language-api"
 
