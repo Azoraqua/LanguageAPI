@@ -1,5 +1,5 @@
 # LanguageAPI 
-![Latest Version](https://img.shields.io/github/v/tag/Azoraqua/LanguageAPI?label=Latest)
+![Latest Version](https://img.shields.io/github/v/tag/Azoraqua/LanguageAPI?label=Latest&color=blue)
 
 A simple library for introducing multiple languages into projects.
 
