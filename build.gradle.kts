@@ -53,7 +53,9 @@ signing {
 }
 
 publishing {
-    publications.create("gpr", MavenPublication::class)
+    publications.create("gpr", MavenPublication::class) {
+        from(components["java"])
+    }
 
     publications.withType<MavenPublication>().forEach {
         with(it.pom) {
@@ -62,11 +64,6 @@ publishing {
                 root.appendNode("name", "LanguageAPI")
                 root.appendNode("description", "A simple library for introducing multiple languages into projects.")
                 root.appendNode("url", "https://github.com/Azoraqua/LanguageAPI")
-            }
-
-            licenses {
-                name.set("MIT License")
-                url.set("https://github.com/Azoraqua/LanguageAPI")
             }
 
             developers {
