@@ -10,7 +10,7 @@ class LanguageAPITests {
     companion object {
         @JvmStatic
         @BeforeAll
-        fun setup(): Unit = Unit
+        fun setup() = Unit
 
         @JvmStatic
         @AfterAll
