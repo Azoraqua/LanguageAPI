@@ -1,4 +1,4 @@
-# LanguageAPI | ![](https://badgen.net/github/release/Azoraqua/LanguageAPI)
+# LanguageAPI ![](https://badgen.net/github/release/Azoraqua/LanguageAPI)
 A simple library for introducing multiple languages into projects.  
 
 
