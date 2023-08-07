@@ -1,3 +1,5 @@
+import java.io.FilenameFilter
+
 plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     kotlin("jvm") version "1.9.0"
@@ -8,7 +10,7 @@ plugins {
 }
 
 group = "com.azoraqua"
-version = "1.3.0-SNAPSHOT"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -44,19 +46,10 @@ tasks.build {
 tasks.shadowJar {
     minimize()
     relocate("com.google.code.gson", "libs.gson")
-}
-
-signing {
-    useGpgCmd()
-
-    sign(configurations.runtimeElements.get())
+    relocate("com.google.guava", "libs.guava")
 }
 
 publishing {
-    publications.create("gpr", MavenPublication::class) {
-        from(components["java"])
-    }
-
     publications.withType<MavenPublication>().forEach {
         with(it.pom) {
             withXml {
@@ -78,5 +71,21 @@ publishing {
                 url.set("https://github.com/Azoraqua/LanguageAPI")
             }
         }
+    }
+
+    publications.create<MavenPublication>("maven") {
+        groupId = rootProject.group.toString()
+        artifactId = rootProject.name
+        version = rootProject.version.toString()
+
+        from(components["java"])
+    }
+}
+
+signing {
+    useGpgCmd()
+
+    buildDir.resolve("libs").listFiles(FilenameFilter { _, name -> name.endsWith(".jar") }).forEach {
+        sign(it)
     }
 }
