@@ -1,5 +1,5 @@
 # LanguageAPI
-A simple library for providing translations in projects.
+A simple library for introducing multiple languages into projects.
 
 ## Examples:
 - Registration:
