@@ -1,7 +1,11 @@
-# LanguageAPI ![](https://badgen.net/github/tag/Azoraqua/LanguageAPI?label=latest&color=green)
-A simple library for introducing multiple languages into projects.  
+# LanguageAPI
+
+![Latest Version](https://img.shields.io/github/v/tag/Azoraqua/LanguageAPI?label=Latest&filter=*-SNAPSHOT)
+
+A simple library for introducing multiple languages into projects.
 
 ## Installation:
+
 **Note:** None of the dependencies below will work at the moment. Work in progress.
 
 - Maven:
@@ -21,8 +25,8 @@ A simple library for introducing multiple languages into projects.
   implementation("com.azoraqua:LanguageAPI:{VERSION}")
   ```
 
-
 ## How to use:
+
 - Registration:
   ```kt
   com.azoraqua.language.LanguageAPI.registerTranslation("hello.world", "Hello World", Locale.ENGLISH)
