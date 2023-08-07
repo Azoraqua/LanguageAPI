@@ -1,5 +1,7 @@
 # LanguageAPI
-A simple library for introducing multiple languages into projects.
+A simple library for introducing multiple languages into projects.  
+
+![](https://badgen.net/github/release/Azoraqua/LanguageAPI)
 
 ## Installation:
 - Maven:
