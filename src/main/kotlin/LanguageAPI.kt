@@ -23,7 +23,7 @@ class LanguageAPI private constructor() {
 
             // Note: This can affect performance when working with large files.
             BufferedReader(FileReader(translationsFile, ENCODING)).use { r ->
-                val obj = GSON.fromJson(r, JsonObject::class.java)
+                val obj = GSON.fromJson(r, JsonObject::class.java) ?: JsonObject()
                 obj.addProperty(key, value)
 
                 BufferedWriter(FileWriter(translationsFile, ENCODING)).use { w ->
@@ -36,7 +36,7 @@ class LanguageAPI private constructor() {
             val translationsFile = File(TRANSLATIONS_DIR, "${locale.language}.json")
 
             BufferedReader(FileReader(translationsFile)).use { r ->
-                val obj = GSON.fromJson(r, JsonObject::class.java).asJsonObject
+                val obj = GSON.fromJson(r, JsonObject::class.java)?.asJsonObject ?: JsonObject()
 
                 if (obj.isEmpty || !obj.has(key)) {
                     throw NoSuchElementException("No key $key in ${locale.language}.json")
