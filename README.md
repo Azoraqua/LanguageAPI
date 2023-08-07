@@ -1,6 +1,25 @@
 # LanguageAPI
 A simple library for introducing multiple languages into projects.
 
+## Installation:
+- Maven:
+  ```xml
+  <dependency>
+    <groupId>com.azoraqua</groupId>
+    <artifactId>language-api</artifactId>
+    <version>{VERSION}</version>
+  </dependency>
+  ```
+- Gradle (Groovy):
+  ```groovy
+  implementation 'com.azoraqua:language-api:{VERSION}'
+  ```
+- Gradle (Kotlin)
+  ```kt
+  implementation("com.azoraqua:language-api:{VERSION}")
+  ```
+
+
 ## Examples:
 - Registration:
   ```kt
