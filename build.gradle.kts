@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "com.azoraqua"
-version = "1.2.0-SNAPSHOT"
+version = "1.3.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -16,6 +16,7 @@ repositories {
 
 dependencies {
     implementation("com.google.code.gson", "gson", "2.10.1")
+    implementation("com.google.guava", "guava", "32.1.2-jre")
     testImplementation(kotlin("test"))
 }
 
