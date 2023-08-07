@@ -1,11 +1,15 @@
 # LanguageAPI ![](https://badgen.net/github/tag/Azoraqua/LanguageAPI?label=latest&color=green)
 A simple library for introducing multiple languages into projects.  
 
-
-
 ## Installation:
 - Maven:
   ```xml
+  <!-- Make sure that your credentials are present in .m2/settings.xml -->
+  <repository>
+    <id>github-repo</id> 
+    <url>https://maven.pkg.github.com/Azoraqua/*</url>
+  </repository>
+  
   <dependency>
     <groupId>com.azoraqua</groupId>
     <artifactId>language-api</artifactId>
