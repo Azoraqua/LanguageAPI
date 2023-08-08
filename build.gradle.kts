@@ -49,14 +49,26 @@ tasks.shadowJar {
     relocate("com.google.guava", "libs.guava")
 }
 
+tasks.publish {
+    dependsOn("build")
+}
+
 publishing {
-    publications.withType<MavenPublication>().forEach {
-        with(it.pom) {
-            withXml {
-                val root = asNode()
-                root.appendNode("name", "LanguageAPI")
-                root.appendNode("description", "A simple library for introducing multiple languages into projects.")
-                root.appendNode("url", "https://github.com/Azoraqua/LanguageAPI")
+    publications.create<MavenPublication>("mavenJava") {
+        groupId = rootProject.group.toString()
+        artifactId = rootProject.name
+        version = rootProject.version.toString()
+
+        pom {
+            name.set("LanguageAPI")
+            description.set("A simple library for introducing multiple languages into projects.")
+            url.set("https://github.com/Azoraqua/LanguageAPI")
+
+            licenses {
+                license {
+                    name.set("MIT License")
+                    url.set("https://github.com/Azoraqua/LanguageAPI/blob/main/LICENSE.md")
+                }
             }
 
             developers {
@@ -69,23 +81,15 @@ publishing {
 
             scm {
                 url.set("https://github.com/Azoraqua/LanguageAPI")
+                connection.set("scm:git:git://github.com/Azoraqua/LanguageAPI.git")
+                developerConnection.set("scm:git:ssh://github.com/Azoraqua/LanguageAPI.git")
             }
         }
-    }
-
-    publications.create<MavenPublication>("maven") {
-        groupId = rootProject.group.toString()
-        artifactId = rootProject.name
-        version = rootProject.version.toString()
 
         from(components["java"])
     }
 }
 
 signing {
-    useGpgCmd()
-
-    buildDir.resolve("libs").listFiles(FilenameFilter { _, name -> name.endsWith(".jar") }).forEach {
-        sign(it)
-    }
+    sign(publishing.publications["mavenJava"])
 }
