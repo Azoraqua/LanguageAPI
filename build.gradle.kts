@@ -35,11 +35,11 @@ tasks.test {
 }
 
 tasks.compileJava {
-    options.release.set(11)
+    options.release.set(8)
 }
 
 tasks.compileKotlin {
-    kotlinOptions.jvmTarget = "11"
+    kotlinOptions.jvmTarget = "1.8"
 }
 
 tasks.build {
