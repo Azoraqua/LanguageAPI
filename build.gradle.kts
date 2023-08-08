@@ -14,9 +14,12 @@ version = "1.0.0"
 
 repositories {
     mavenCentral()
+
+    maven("https://jitpack.io")
 }
 
 dependencies {
+    implementation("com.github.jitpack:gradle-simple:1.0")
     implementation("com.google.code.gson", "gson", "2.10.1")
     implementation("com.google.guava", "guava", "32.1.2-jre")
     testImplementation(kotlin("test"))
