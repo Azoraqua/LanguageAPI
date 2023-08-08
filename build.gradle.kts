@@ -94,9 +94,3 @@ publishing {
         from(components["java"])
     }
 }
-
-signing {
-    useGpgCmd()
-
-    sign(publishing.publications["mavenJava"])
-}
