@@ -54,6 +54,8 @@ tasks.shadowJar {
 
 tasks.publish {
     dependsOn("build")
+    dependsOn("publishMavenJavaPublicationToMavenLocal")
+    dependsOn("publishToMavenLocal")
 }
 
 publishing {
@@ -94,5 +96,7 @@ publishing {
 }
 
 signing {
+    useGpgCmd()
+
     sign(publishing.publications["mavenJava"])
 }
